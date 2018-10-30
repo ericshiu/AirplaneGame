@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-let player, bullets, bg, shotAudio, enemys, scoreText
+let player, bullets, bg, shotAudio, enemys, scoreText, spaceKey
 let fireRate = 100
 let nextFire = 0
 let lestX = 0
@@ -59,12 +59,13 @@ export default class extends Phaser.State {
     enemys.callAll('animations.add', 'animations', 'fly2', [0, 1, 2, 3], 4, true)
     // 記分板
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
+    spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   }
   update () {
     if (this.time.now > nextFire) {
       this.createEnemy()
     }
-    if (this.input.pointer1.isDown) {
+    if (this.input.pointer1.isDown || spaceKey.isDown) {
       this.fire()
       // this.physics.arcade.accelerationFromRotation(bullet.rotation, 300, bullet.body.acceleration)
     }
