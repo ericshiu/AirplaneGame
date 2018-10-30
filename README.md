@@ -6,4 +6,4 @@
 1. 空白艦發射
 2. 滑鼠按住拖曳飛機
 
-![alt text](https://ericshiu.github.io/AirplaneGame/CapGame.PNG)
+![alt text](https://raw.githubusercontent.com/ericshiu/AirplaneGame/master/CapGame.PNG)
