@@ -6,7 +6,7 @@ let lestX = 0
 let score = 0
 export default class extends Phaser.State {
   init () {
-    this.stage.backgroundColor = '#EDEEC9'
+    // this.stage.backgroundColor = '#EDEEC9'
   }
   preload () {
     this.load.audio('backgroundAudio', 'assets/audio/bgm.mp3')
@@ -59,9 +59,12 @@ export default class extends Phaser.State {
     enemys.callAll('animations.add', 'animations', 'fly2', [0, 1, 2, 3], 4, true)
     // 記分板
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
-    spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
   }
   update () {
+    if (Phaser.Rectangle.intersects(player, enemys)) {
+      this.state.start('Over')
+    }
     if (this.time.now > nextFire) {
       this.createEnemy()
     }

@@ -3,7 +3,8 @@ import 'p2'
 import Phaser from 'phaser'
 
 import BootState from './states/Boot'
-
+import MeunState from './states/Meun'
+import OverState from './states/Over'
 import config from './config'
 
 class Game extends Phaser.Game {
@@ -14,11 +15,12 @@ class Game extends Phaser.Game {
     // const width = 414
     // const height = 736
     super(width, height, Phaser.CANVAS, 'content', null)
-
+    this.state.add('Meun', MeunState, false)
     this.state.add('Boot', BootState, false)
+    this.state.add('Over', OverState, false)
     // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
     if (!window.cordova) {
-      this.state.start('Boot')
+      this.state.start('Meun')
       this.state.disableVisibilityChange = true
     }
   }
@@ -42,7 +44,7 @@ if (window.cordova) {
       this.receivedEvent('deviceready')
 
       // When the device is ready, start Phaser Boot state.
-      window.game.state.start('Boot')
+      window.game.state.start('Meun')
     },
 
     receivedEvent: function (id) {
