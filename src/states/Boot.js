@@ -4,6 +4,7 @@ let fireRate = 100
 let nextFire = 0
 let lestX = 0
 let score = 0
+// let isOver = false
 export default class extends Phaser.State {
   init () {
     // this.stage.backgroundColor = '#EDEEC9'
@@ -42,7 +43,7 @@ export default class extends Phaser.State {
     // 製作子彈
     bullets = this.add.group()
     bullets.enableBody = true
-    bullets.physicsBodyType = Phaser.Physics.ARCADE
+    // bullets.physicsBodyType = Phaser.Physics.ARCADE
     bullets.createMultiple(200, 'bullet', [0, 1, 2, 3])
     bullets.setAll('checkWorldBounds', true)
     bullets.setAll('outOfBoundsKill', true)
@@ -62,7 +63,8 @@ export default class extends Phaser.State {
     spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
   }
   update () {
-    if (Phaser.Rectangle.intersects(player, enemys)) {
+    // console.log(player.body.debug)
+    if (this.physics.arcade.collide(player, enemys)) {
       this.state.start('Over')
     }
     if (this.time.now > nextFire) {
@@ -86,9 +88,18 @@ export default class extends Phaser.State {
       player.animations.stop()
       player.frame = 2
     }
-    // 此方法在這遊戲是把星星刪除
+    // 此方法在這遊戲是把物件刪除
     this.physics.arcade.overlap(bullets, enemys, this.collectStar, null, this)
   }
+  // checkOver (body1, body2) {
+  //   console.log('air : ', body1.y)
+  //   console.log('e : ', body2.y)
+  //   if ((body1.y + 70) < (body2.y)) {
+  //     isOver = true
+  //   } else {
+  //     isOver = false
+  //   }
+  // }
   collectStar (bullets, e) {
     // 把這個星星刪除
     console.log(e)

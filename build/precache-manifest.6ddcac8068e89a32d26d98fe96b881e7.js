@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "d2b4ed46500fe638c1ee6bfe6fc533fb",
-    "url": "./assets/images/bg.jpg"
+    "revision": "fa59295ed702e7382f9f7afa3225d855",
+    "url": "./assets/images/gameover.png"
   },
   {
-    "revision": "afe8ef0fbcfe94aaf962",
+    "revision": "31ed988778a0dc60e72d",
     "url": "./js/bundle.js"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "./js/vendor.bundle.js"
   },
   {
-    "revision": "297b9227bba252ce7b8cc3d3fc5cd505",
+    "revision": "34d2be2f9f8f28f2e06b48f714cd0f04",
     "url": "./index.html"
   },
   {
@@ -24,16 +24,16 @@ self.__precacheManifest = [
     "url": "./assets/images/plane-sprite-png-4.png"
   },
   {
-    "revision": "fa59295ed702e7382f9f7afa3225d855",
-    "url": "./assets/images/gameover.png"
-  },
-  {
     "revision": "9ac4e1aaf6c5d48322f8f940a8866b71",
     "url": "./assets/images/enemy.png"
   },
   {
     "revision": "5b6b73c869866bc3d62e0a5946ee7a1b",
     "url": "./assets/images/bullet.png"
+  },
+  {
+    "revision": "d2b4ed46500fe638c1ee6bfe6fc533fb",
+    "url": "./assets/images/bg.jpg"
   },
   {
     "revision": "6b2a53ee8ac3cfc5df2d10afc0f89b97",
